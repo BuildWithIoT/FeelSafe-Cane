@@ -1,0 +1,5 @@
+1.Arduino nano (virtual, in Tinkercad)
+2.Breadboard (virtual)
+3.Connecting Wires
+4.Buzzer
+5.Ultrasonic sensor (HC-SR04)

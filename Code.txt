@@ -1,0 +1,32 @@
+const int trigPin = 9;  
+const int echoPin = 10; 
+const int buzzerPin = 11; 
+void setup() 
+{
+  Serial.begin(9600);
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  pinMode(buzzerPin, OUTPUT);
+  Serial.println("Blind Stick is Ready");
+}
+void loop() 
+{
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  long duration = pulseIn(echoPin, HIGH);
+  long distance = duration * 0.034 / 2;
+  Serial.print("Distance: ");
+  Serial.print(distance);
+  Serial.println(" cm");
+  if (distance > 0 && distance <= 50) 
+{ 
+    tone(buzzerPin, 1000); 
+  } else 
+{
+    noTone(buzzerPin); 
+  }
+  delay(100);
+}
